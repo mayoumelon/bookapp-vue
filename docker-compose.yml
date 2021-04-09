@@ -3,7 +3,7 @@ services:
   app:
     build: .
     ports:
-      - 8080:8080
+      - 9050:9050
     volumes:
       - .:/usr/src/app
     stdin_open: true
