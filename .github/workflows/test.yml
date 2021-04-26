@@ -15,9 +15,11 @@ jobs:
       # チャットワークにデプロイ完了通知
       - name: Send cahtwork from Deploy
         env:
+
           ROOM_ID: ${{ secrets.CHATWORK_ROOM_ID }}
           API_TOKEN: ${{ secrets.CHATWORK_API_TOKEN }}
           REPO_NAME: 'TeamHamorebi/PF-C2104'
           BODY: '開発環境が更新されました！チェックしてちょ♪\nhttp://gemini.gontao-dev.com/\n※こちらはGitHub Actionsによる自動送信です'
         run: |
-          curl -s -X POST -H "X-ChatWorkToken: ${{ API_TOKEN }}" -d "body=[info][title]${{ REPO_NAME }}[/title]`echo -e ${{ BODY }}`[/info]"
+          echo ${API_TOKEN}
+          curl -s -X POST -H "X-ChatWorkToken: ${API_TOKEN}" -d "body=[info][title]${REPO_NAME}[/title]`echo -e ${BODY}`[/info]"
