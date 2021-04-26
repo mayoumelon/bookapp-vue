@@ -9,6 +9,7 @@
         :books="books" 
         @add-book-list="addBook" 
         @update-book-info="updateBookInfo" />
+        </v-container>
     </v-main>
     <Footer/>
   </v-app>

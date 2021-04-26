@@ -1,5 +1,5 @@
 <template>
-  <div>フッター</div>
+  <div>フッターテスト</div>
 </template>
 
 <script>
