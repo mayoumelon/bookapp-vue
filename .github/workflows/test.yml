@@ -14,7 +14,7 @@ jobs:
 
       # 自動ビルド
       - name: npm i && npm run build
-        run: cd htdocs && npm i && npm run build
+        run: cd  bookapp && npm i && npm run build
 
       # チャットワークにデプロイ完了通知
       - name: Send cahtwork from Deploy
