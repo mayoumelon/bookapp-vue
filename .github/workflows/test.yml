@@ -11,7 +11,11 @@ jobs:
     steps:
       # masterにマージ
       - uses: actions/checkout@master
-    
+
+      # 自動ビルド
+      - name: npm i && npm run build
+        run: cd htdocs && npm i && npm run build
+
       # チャットワークにデプロイ完了通知
       - name: Send cahtwork from Deploy
         env:
@@ -21,4 +25,4 @@ jobs:
           REPO_NAME: 'TeamHamorebi/PF-C2104'
           BODY: '開発環境が更新されました！チェックしてちょ♪\nhttp://gemini.gontao-dev.com/\n※こちらはGitHub Actionsによる自動送信です'
         run: |
-          curl -s -X POST -H "X-ChatWorkToken: ${API_TOKEN}" -d "body=[info][title]${REPO_NAME}[/title]`echo -e ${BODY}`[/info]"  "https://api.chatwork.com/v2/rooms/${ROOM_ID}/messages"
+          curl -s -X POST -H "X-ChatWorkToken: ${API_TOKEN}" -d "body=[title]${REPO_NAME}[/title]`echo -e ${BODY}`" "https://api.chatwork.com/v2/rooms/${ROOM_ID}/messages"
