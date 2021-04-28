@@ -33,6 +33,6 @@ jobs:
           ROOM_ID: ${{ secrets.CHATWORK_ROOM_ID }}
           API_TOKEN: ${{ secrets.CHATWORK_API_TOKEN }}
           REPO_NAME: 'TeamHamorebi/PF-C2104'
-          BODY: '${REPO_NAME}\n開発環境が更新されました！チェックしてちょ♪\nhttp://gemini.gontao-dev.com/\n※こちらはGitHub Actionsによる自動送信です'
+          BODY: "${REPO_NAME}\n開発環境が更新されました！チェックしてちょ♪\nhttp://gemini.gontao-dev.com/\n※こちらはGitHub Actionsによる自動送信です"
         run: |
           curl -s -X POST -H "X-ChatWorkToken: ${API_TOKEN}" -d "body=`echo -e ${BODY}`" "https://api.chatwork.com/v2/rooms/${ROOM_ID}/messages"
