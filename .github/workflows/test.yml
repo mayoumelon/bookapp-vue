@@ -16,6 +16,16 @@ jobs:
       - name: npm i && npm run build
         run: cd  bookapp && npm i && npm run build
 
+      # 自動デプロイ
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          LOCAL_DIR: ./dist/
+          REMOTE_DIR: /youmeiro-tech.com/public_html/
+
       # チャットワークにデプロイ完了通知
       - name: Send cahtwork from Deploy
         env:
