@@ -11,7 +11,7 @@
               <v-card-title>
                 タイトル：{{ book.title }}
               </v-card-title>
-              読んだ日：
+              読んだ日だよ：
                 <v-menu
                   v-model="menu"
                   :close-on-content-click="false"
